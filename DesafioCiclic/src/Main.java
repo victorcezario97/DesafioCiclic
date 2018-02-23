@@ -26,7 +26,14 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		HashMap<String, Beer> hash = startHashDefault();
+		UserInteraction ui = new UserInteraction(hash);
 		
+		ui.printUsage();
+		
+		int exit = 0;
+		while(exit != -1){
+			exit = ui.readInput();
+		}
 	}
 
 }
