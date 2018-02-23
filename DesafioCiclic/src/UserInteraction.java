@@ -6,12 +6,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 /**
- * 
- */
-
-/**
+ *	Class that interacts with the user by reading input and editing the beer hash according to the decisions.
  * @author Victor
- *
  */
 public class UserInteraction {
 	private HashMap<String, Beer> hash;
@@ -20,6 +16,9 @@ public class UserInteraction {
 		this.hash = hash;
 	}
 	
+	/**
+	 * Prints the usage of the system.
+	 */
 	public void printUsage(){
 		System.out.println("Olá, eu sou a Máquina Cervejeira™.");
 		System.out.println("Digite o estilo da cerveja que eu direi a menor temperatura ideal de consumo.");
@@ -28,7 +27,11 @@ public class UserInteraction {
 				+ " ou \"sair\" para sair");
 	}
 	
-	public void printBeer(Beer beer){
+	/**
+	 * Prints an instance of the Beer class or an error message if the element is null.
+	 * @param beer the instance to be printed.
+	 */
+	private void printBeer(Beer beer){
 		if(beer == null){
 			System.out.println("Esse estilo não está catalogado. Você pode adicioná-lo usando o comando \"adicionar\".");
 			return;
@@ -38,7 +41,11 @@ public class UserInteraction {
 		System.out.println("Temperatura mínima: " + beer.getMinTemp());
 	}
 	
-	public Beer readAdd(){
+	/**
+	 * Reads the name, minimum temperature and maximum temperature from the console and creates a new Beer object with these properties. 
+	 * @return the Beer object with the read properties
+	 */
+	private Beer readAdd(){
 		InputStreamReader isr = new InputStreamReader(System.in);
 		BufferedReader br = new BufferedReader(isr);
 		
@@ -64,11 +71,19 @@ public class UserInteraction {
 		return beer;
 	}
 	
+	/**
+	 * Removes an entry from the hash.
+	 * @param name key of the entry to be removed
+	 */
 	private void remove(String name){
 		hash.remove(name);
 		System.out.println(name + " removido.");
 	}
 	
+	/**
+	 * Reads the option from the console and calls the appropriate method or action.
+	 * @return the execution code. 0 - no error. -1 - exit. -2 - input read error.
+	 */
 	public int readInput(){
 		InputStreamReader isr = new InputStreamReader(System.in);
 		BufferedReader br = new BufferedReader(isr);
@@ -107,9 +122,8 @@ public class UserInteraction {
 			Iterator<Beer> it = beers.iterator();
 			
 			while(it.hasNext()){
-				Beer element = it.next();
-				System.out.println("Estilo: " + element.getName());
-				System.out.println("Temperatura mínima: " + element.getMinTemp() + "\n");
+				printBeer(it.next());
+				System.out.println();
 			}
 			break;
 			

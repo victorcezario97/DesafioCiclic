@@ -1,15 +1,16 @@
 import java.util.HashMap;
 
-/**
- * 
- */
 
 /**
+ *	Main class that initializes the hash and communicates with the UserInteraction class.
  * @author Victor
- *
  */
 public class Main {
 	
+	/**
+	 * Method that initializes the hash with default values.
+	 * @return The initialized hash
+	 */
 	private static HashMap<String, Beer> startHashDefault(){
 		HashMap<String, Beer> hash = new HashMap<>();
 		
@@ -22,6 +23,7 @@ public class Main {
 	}
 
 	/**
+	 * Main method.
 	 * @param args
 	 */
 	public static void main(String[] args) {

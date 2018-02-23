@@ -3,8 +3,8 @@
  */
 
 /**
+ *	Class containing the Beer attributes.
  * @author Victor
- *
  */
 public class Beer {
 	private String name;
